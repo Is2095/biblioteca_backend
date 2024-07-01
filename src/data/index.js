@@ -7,9 +7,9 @@ const PASSWORD = process.env.PASSWORD;
 export const coneccionBD = () => {
     const db = mysql.createConnection({
         host: 'localhost',
-        user: 'root',
-        database: 'biblioteca_virtual',
-        password: PASSWORD
+        user: /*'root'*/'Ani',
+        database: /*'biblioteca_virtual'*/'prueba',
+        password: /*password*/'Maybob19',
     });
 
     db.connect((err) => {
@@ -17,7 +17,7 @@ export const coneccionBD = () => {
             console.log('error al conectarse a la base de datos');
             return;
         } else {
-            console.log('coneción exitosa a la base de datos: biblioteca_virtual');
+            console.log('coneción exitosa a la base de datos: Ani');
         }
     })
     return db;

@@ -18,4 +18,16 @@ function provincias() {
 $d.addEventListener("DOMContentLoaded", provincias)
 
 
+    document.getElementById('formulario').addEventListener('submit', function(event) {
+        var password = document.getElementById('password').value;
+        var confirmarPassword = document.getElementById('confirmarPassword').value;
+
+        if (password !== confirmarPassword) {
+            event.preventDefault(); // Evita que se envíe el formulario
+            alert('Las contraseñas no coinciden. Por favor, inténtelo de nuevo.');
+        }
+    });
+
+
+
 

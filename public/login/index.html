@@ -3,12 +3,72 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="login.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+   
+
+    <title>Login</title>
 </head>
 <body>
+    <nav class="container_nav">
+        <div class="container_nav_logo">
+            <img class="imagenCodoACodo" src="../Images/logo.jpg" alt="logo" width="146" height="66">
+        </div>
+        <div class="container_nav_menu">
+            <ul class="ulNav">
+                <li><a class="aNav" href="../index.html">Inicio</a></li>
+                <!-- <li><a class="aNav" href="../seccion_3.html">Novedades</a></li>
+                <li><a class="aNav" href="../About_us.html">Quienes somos</a></li> -->
+            </ul>
+        </div>
+    </nav>
+    <div class="contenedor-login">
+    <div class="background">
+        <div class="shape"></div>
+        <div class="shape"></div>
+    </div>
+    <form>
+        <h3>Ingrese aqui</h3>
     <label for="loginEmail">Ingrese el correo para ingresar</label>
     <input type="text" value="" id="loginEmail" placeholder="ingrese correo">
+    <label for="password">Password</label>
+        <input type="password" placeholder="Password" id="password">
+
     <button type="button" onclick="{login()}">Aceptar</button>
-    <script src="./login.js"></script>
+    <div class="social">
+        <div class="go"><i class="fab fa-google"></i>  Google</div>
+        <div class="fb"><i class="fab fa-facebook"></i>  Facebook</div>
+      </div>
+  </form>
+    </div>
+  <footer>
+    <div class="contenedor-footer">
+        <div class="content-foo">
+            <h3> Encontranos en: </h3>
+            <iframe class="mapa" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3284.753271036201!2d-58.40201092338667!3d-34.585109056517176!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bcca9e62bc9fb7%3A0xd4513402bd37a401!2sBiblioteca%20Nacional!5e0!3m2!1ses-419!2sar!4v1712017195078!5m2!1ses-419!2sar" width="300" height="150" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            <p class="adress">Av. Gral. Las Heras 2555, C1425ASC Cdad. Autónoma de Buenos Aires</p>
+        </div>
+        <div class="content-foo">
+            <h3>Redes</h3>
+
+            <div class="redes">
+                <a href="https://www.instagram.com"><i class="fa-brands fa-instagram"></i></a>
+                <a href="https://discord.com"><i class="fa-brands fa-discord"></i></a>
+                <a href="https://github.com"><i class="fa-brands fa-github"></i></a>
+                <a href="https://www.linkedin.com"><i class="fa-brands fa-linkedin"></i></a>
+                <a href="https://mail.google.com/mail/u/0/#inbox"><i class="fa-solid fa-envelope-circle-check"></i></a>
+            </div>
+        </div>
+        <div class="content-foo">
+            <h3><a href="About_us.html">Quienes somos</a></h3>
+            <p class="somos">Nos dedicamos a brindarte el catálogo más completo de libros: novelas, autobiografías, Historia, autoayuda, divulgación científica, poesía, y miles de títulos para todos los gustos literarios</p>
+        </div>
+    </div>
+    <h2 class="titulo-final">&copy; Proyecto Codo a Codo Grupo 3</h2>
+</footer>
+<script src="./login.js"></script>
 </body>
 </html>

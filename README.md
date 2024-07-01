@@ -54,6 +54,7 @@ Crear un archivo en la raíz del proyecto .env en el cual se deberá colocar las
     │   │   └── index.js
     │   ├── login
     │   │   ├── index.html
+                login.css
     │   │   └── login.js
     │   ├── index.html
     │   └── styles.css
@@ -157,6 +158,7 @@ Buscar un usuario por un email específico.
 - apellido VARCHAR(45) NotNull
 - edad INT NotNull
 - email VARCHAR(45) NotNull Unique
+- password VARCHAR(25) NotNull
 - fechaActual DATE NotNull
 - provincia VARCHAR(45) NotNull
 - foto VARCHAR(45) NotNull
