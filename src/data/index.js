@@ -3,11 +3,11 @@ import mysql2 from 'mysql2/promise';
 import mysql from 'mysql2';
 import "dotenv/config";
 
-const { PASSWORD, DATABASE } = process.env;
+const { PASSWORD, DATABASE, USER, HOST } = process.env;
 
 const configuracionBD = {
-    host: 'localhost',
-    user: 'root',
+    host: HOST,
+    user: USER,
     database: DATABASE,
     password: PASSWORD
 };
