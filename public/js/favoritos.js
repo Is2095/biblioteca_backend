@@ -4,7 +4,7 @@ function toggleFavorite(button, dato) {
     const corazonRojo = button.classList.toggle('active');
    
     if (!corazonRojo) {
-        fetch(`http://localhost:3001/api`, { 
+        fetch(`https://biblioteca-backend-tau.vercel.app/api`, { 
             method: 'DELETE' ,
             headers: {
                 'Content-Type': 'application/json' 
@@ -15,7 +15,7 @@ function toggleFavorite(button, dato) {
             .then(res => console.log(res))
             .catch(err => console.log(err));
     } else {
-        fetch(`http://localhost:3001/api/favoritos`, {
+        fetch(`https://biblioteca-backend-tau.vercel.app/api/favoritos`, {
              method: 'POST',
              headers: {
                 'Content-Type': 'application/json'

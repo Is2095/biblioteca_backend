@@ -4,7 +4,7 @@ const $d = document;
 const login = () => {
     const emailLogin = $d.getElementById('loginEmail')
 
-    fetch('http://localhost:3001/api/usuario', {
+    fetch('https://biblioteca-backend-tau.vercel.app/api/usuario', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
