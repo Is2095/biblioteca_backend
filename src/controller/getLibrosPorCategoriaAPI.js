@@ -8,10 +8,8 @@ const ObtenerLibrosPorCategoriaAPI = (req, res) => {
     const {categoria, nombreLibro }= req.query;
     let url = ''
     if(nombreLibro) {
-        console.log('nombreLibro', req.query.nombreLibro);
         url = `https://www.googleapis.com/books/v1/volumes?q=${nombreLibro}`;
     } else {
-        console.log('categoria', req.query.categoria);
         url = `https://www.googleapis.com/books/v1/volumes?q=subject:${categoria}&maxResults=5&langRestrict=es&key=${APIKEY}`
     }
     fetch(url)

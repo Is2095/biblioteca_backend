@@ -140,20 +140,20 @@ Buscar un usuario por un email específico.
 
 ## tabla "libros"
 
-- id_libro INT PK NotNull
+- id_libro INT PK AUTO_INCREMENT NotNull
 - authors VARCHAR(50) NotNull
 - description TEXT
 - ImageLink VARCHAR(250) NotNull
 - language VARCHAR(5) NotNull
 - pageCount INT NotNull
 - title VARCHAR(50) NotNull
-- puclished_date VARCHAR(50) NotNull
+- published_date VARCHAR(50) NotNull
 - id_categoría INT FK (de tabla categoria)
 - id VARCHAR(45) NotNull
 
 ## tabla "usuarios"
 
-- id_usuario INT PK NotNull
+- id_usuario INT PK AUTO_INCREMENT NotNull
 - nombre VARCHAR(45) NotNull
 - apellido VARCHAR(45) NotNull
 - edad INT NotNull
@@ -165,11 +165,11 @@ Buscar un usuario por un email específico.
 
 ## tabla "categoria"
 
-- id_categoria INT PK NotNull
+- id_categoria INT PK AUTO_INCREMENT NotNull
 - categoria VARCHAR(45) NotNull
 
 ## tabla "favoritos"
 
-- id_favoritos INT PK NotNull
+- id_favorito INT PK AUTO_INCREMENT NotNull
 - id_libro_f INT FK (de tabla libros)
 - id_usuario_f INT FK (de tabla usuarios)
