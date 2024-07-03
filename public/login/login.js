@@ -3,13 +3,14 @@ const $d = document;
 
 const login = () => {
     const emailLogin = $d.getElementById('loginEmail')
+    const passwordLogin = $d.getElementById('password')
 
     fetch('http://localhost:3001/api/usuario', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
         },
-        body: JSON.stringify({email : emailLogin.value})
+        body: JSON.stringify({email : emailLogin.value, password: passwordLogin.value})
     })
     .then(resultado => resultado.json())
     .then(usuario => {

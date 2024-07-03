@@ -55,6 +55,7 @@ const GuardarUsuarioBD = (req, res) => {
     const { nombre, apellido, edad, email, password, fechaActual, provincia } = req.body;
     const dateActual = new Date(fechaActual).toISOString().slice(0, 19).replace('T', ' ');
     const edadNumber = parseInt(edad);
+    console.log( nombre, apellido, edad, email, password, fechaActual, provincia, 'datos por body');
 
     db.query('SELECT usuarios.id_usuario FROM usuarios WHERE usuarios.email = ?', [email], (err, result) => {
         if (err) {
@@ -62,13 +63,12 @@ const GuardarUsuarioBD = (req, res) => {
             res.status(404).json({ err: 'error al buscar la información del usuario' });
         } else {
             if (result.length === 0) {
-                db.query('INSERT IGNORE INTO usuarios (nombre, apellido, edad, email, fechaActual, provincia) VALUES (?, ?, ?, ?, ?, ?);', [nombre, apellido, edadNumber, email, dateActual, provincia], (err, result) => {
+                db.query('INSERT IGNORE INTO usuarios (nombre, apellido, edad, email, password, fechaActual, provincia) VALUES (?, ?, ?, ?, ?, ?, ?);', [nombre, apellido, edadNumber, email, password, dateActual, provincia], (err, result) => {
                     if (err) {
                         desconeccionBD(db);
                         res.status(404).json({ err: 'error al guardar los datos del usuario' });
                     } else {
                         console.log('usuario registrado');
-                        console.log('base de datos desconectada');
                         const idUsuario = result.insertId;
                         desconeccionBD(db);
                         res.redirect('http://localhost:3001/login/index.html');
