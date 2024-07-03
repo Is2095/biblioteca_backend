@@ -15,8 +15,9 @@ const login = () => {
     .then(resultado => resultado.json())
     .then(usuario => {
         if(usuario.err) {
-            alert('el usuario no existe')
+            alert(usuario.err)
         } else {
+            console.log( usuario.email, 'usuario', usuario.password);
             sessionStorage.setItem('usuario', usuario.nombre)
             sessionStorage.setItem('idUsuario', usuario.id_usuario)
             sessionStorage.setItem('imageUser', usuario.foto)
