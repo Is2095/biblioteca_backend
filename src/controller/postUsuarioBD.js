@@ -48,7 +48,7 @@ const GuardarUsuarioBD = (req, res) => {
 export default GuardarUsuarioBD;*/
 
 import { coneccionBD, desconeccionBD } from "../data/index.js";
-import crypto from 'node:crypto'
+// import crypto from 'node:crypto'
 import bcrypt from 'bcryptjs';
 
 const GuardarUsuarioBD = async (req, res) => {

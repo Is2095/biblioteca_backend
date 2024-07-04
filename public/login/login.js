@@ -17,12 +17,11 @@ const login = () => {
         if(usuario.err) {
             alert(usuario.err)
         } else {
-            console.log( usuario.email, 'usuario', usuario.password);
             sessionStorage.setItem('usuario', usuario.nombre)
             sessionStorage.setItem('idUsuario', usuario.id_usuario)
             sessionStorage.setItem('imageUser', usuario.foto)
 
-            alert(`el usuario: ${usuario.nombre} se encontró`)
+            alert(`el usuario: "${usuario.nombre}" se encontró`)
             window.location.href = '../index.html'
 
     }   }) 
