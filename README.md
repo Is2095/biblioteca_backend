@@ -132,7 +132,11 @@ Buscar un usuario por un email específico.
 
 `PUT /api/`
 
+`GET /protegida`
+Ruta donde se accede solo si el token está activo
 
+- Respuest: {"message": "acceso autorizado"}
+         ó: {"err": "Acceso no autorizado"}
 
 # Base de Datos - MySQL con Workbench
 
