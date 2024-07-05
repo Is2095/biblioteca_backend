@@ -59,7 +59,7 @@ const GuardarUsuarioBD = async (req, res) => {
     const edadNumber = parseInt(edad);
 
     const hashedPassword = await bcrypt.hash(password, 10)
-
+console.log(hashedPassword, 'contraseña hash');
     db.query('SELECT usuarios.id_usuario FROM usuarios WHERE usuarios.email = ?', [email], (err, result) => {
         if (err) {
             desconeccionBD(db);
@@ -74,7 +74,7 @@ const GuardarUsuarioBD = async (req, res) => {
                         console.log('usuario registrado');
                         const idUsuario = result.insertId;
                         desconeccionBD(db);
-                        res.redirect('https://biblioteca-backend-y7iu.vercel.app/login/index.html');
+                        res.redirect('http://localhost:3001/login/index.html');
                     }
                 });
             } else {

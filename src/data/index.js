@@ -32,7 +32,7 @@ export const inicializacionBD = async () => {
                 apellido VARCHAR(45) NOT NULL,
                 edad INT NOT NULL,
                 email VARCHAR(45) NOT NULL UNIQUE,
-                password VARCHAR(45) NOT NULL,
+                password VARCHAR(150) NOT NULL,
                 fechaActual VARCHAR(45) NOT NULL,
                 provincia VARCHAR(45) NOT NULL,
                 foto VARCHAR(80) NOT NULL DEFAULT 'https://i.postimg.cc/qq4zPr5z/user.png'
