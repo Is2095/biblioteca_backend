@@ -11,6 +11,8 @@ import BuscarUsuarioPorEmailBD from "../controller/getUsuarioPorEmailBD.js";
 
 import BorrarFavoritoBD from "../controller/deleteFavoritoBD.js";
 
+import ActualizarUsuarioBD from "../controller/putUsuarioBD.js";
+
 
 const router = Router()
 
@@ -24,6 +26,6 @@ router.delete('/', BorrarFavoritoBD)
 router.post('/formulario', GuardarUsuarioBD)
 router.post('/usuario', BuscarUsuarioPorEmailBD)
 
-router.put('/', (req, res) => {})
+router.put('/', ActualizarUsuarioBD)
 
 export default router;
