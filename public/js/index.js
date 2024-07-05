@@ -52,7 +52,7 @@ setInterval(function() {
 const rutaProtegida = document.getElementById('rutaProtegida')
 rutaProtegida.addEventListener('click', (e) => {
     e.preventDefault()
-    fetch('https://biblioteca-backend-y7iu.vercel.app/protegida')
+    fetch('https://protegida')
         .then(res => res.json())
         .then(res => {
             const mensaje = res.err ?? res.message
@@ -76,7 +76,7 @@ const llamar = async (categoria) => {
 
     const id_usuario = sessionStorage.getItem('idUsuario');
 
-    const response = await fetch(`https://biblioteca-backend-y7iu.vercel.app/api/favoritos/${parseInt(id_usuario)}`);
+    const response = await fetch(`https://api/favoritos/${parseInt(id_usuario)}`);
     const arrayFavoritos = await response.json();
 
     loading.style.display = 'block'
@@ -114,7 +114,7 @@ const llamar = async (categoria) => {
     if (categoria === 'titulo') {
         nombreDelLibro = $d.getElementById('libroPorTitulo').value.toLowerCase();
     }
-    fetch(`https://biblioteca-backend-y7iu.vercel.app/api/libros?nombreLibro=${nombreDelLibro}&categoria=${categoria}`)
+    fetch(`https://api/libros?nombreLibro=${nombreDelLibro}&categoria=${categoria}`)
         .then(res => res.json())
         .then(res => insertarDatos(res))
         .catch(err => console.log(err));
