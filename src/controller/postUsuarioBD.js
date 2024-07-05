@@ -74,7 +74,7 @@ const GuardarUsuarioBD = async (req, res) => {
                         console.log('usuario registrado');
                         const idUsuario = result.insertId;
                         desconeccionBD(db);
-                        res.redirect('http://localhost:3001/login/index.html');
+                        res.redirect('https://biblioteca-backend-y7iu.vercel.app/login/index.html');
                     }
                 });
             } else {
