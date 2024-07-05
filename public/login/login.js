@@ -5,8 +5,8 @@ const login = () => {
     const emailLogin = $d.getElementById('loginEmail')
     const passwordLogin = $d.getElementById('password')
 
-    fetch('https://api/usuario', {
-        method: 'POST',
+    fetch('https://biblioteca-backend-y7iu.vercel.app/api/usuario', {
+        method: 'PO/ST',
         headers: {
             'Content-Type': 'application/json'
         },
