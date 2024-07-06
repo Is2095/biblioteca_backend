@@ -17,7 +17,7 @@ const login = () => {
         if(usuario.err) {
             alert(usuario.err)
         } else {
-            sessionStorage.setItem('usuario', usuario.nombre)
+            sessionStorage.setItem('usuario', `${usuario.nombre}, ${usuario.apellido}`)
             sessionStorage.setItem('idUsuario', usuario.id_usuario)
             sessionStorage.setItem('imageUser', usuario.foto)
 

@@ -31,7 +31,8 @@
         <li><a id="hrefUser" href="./actualizarUsuario/index.html"><img id="imagenUser" class="usuario" src=""
               alt="sin imagen"></a></li>
         <li>
-          <h3 id="nombreUsuario"></h3>
+        <li><a id="hrefNombreUsuario" href="./actualizarUsuario/index.html"  class="a" ><i class="h5h" id="nombreUsuario"></i></a></li>
+        <h3 id="nombreUsuario"></h3>
         </li>
         <!-- <li><a id="hrefUser" href="./formulario/CONTACTO.html"><i class="bi bi-person-circle usuario"></i></a></li> -->
         <!--   <li><a href="About_us.html">Quienes somos</a></li> -->
@@ -170,9 +171,16 @@
   <script src="./js/index.js"></script>
   <script src="./js/favoritos.js"></script>
   <script>
+  // <li><a id="hrefNombreUsuario" href="./actualizarUsuario/index.html"><h3 id="nombreUsuario"></h3></a></li>
+
     const foto = sessionStorage.getItem('imageUser')
+    const nombre = sessionStorage.getItem('usuario')
+
     const imageUsuario = $d.getElementById('imagenUser');
     imageUsuario.src = foto
+    if(nombre) {
+      document.getElementById('nombreUsuario').innerText = `" ${nombre} "`
+    }
   </script>
 </body>
 
