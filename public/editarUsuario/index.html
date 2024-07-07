@@ -35,16 +35,16 @@
         <input class="texto" type="password" id="password" name="password">
 
         <label class="titulo" for="nombre">Nombre:</label>
-        <input class="texto" type="text" id="nombre" name="nombre" required>
+        <input class="texto" type="text" id="nombre" name="nombre">
 
         <label class="titulo" for="apellido">Apellido:</label>
-        <input class="texto"type="text" id="apellido" name="apellido" required>
+        <input class="texto"type="text" id="apellido" name="apellido">
 
         <label class="titulo" for="edad">Edad:</label>
-        <input class="texto" type="number" id="edad" name="edad" required>
+        <input class="texto" type="number" id="edad" name="edad">
 
         <label class="titulo" for="provincia">Provincia:</label>
-        <input class="texto" type="text" id="provincia" name="provincia" required>
+        <input class="texto" type="text" id="provincia" name="provincia">
 
         <button class="boton-enviar" type="submit">Actualizar Usuario</button>
     </form>
@@ -62,8 +62,8 @@
 
             const body = JSON.stringify({ email, password, nombre, apellido, edad, provincia });
 
-            const response = await fetch('/usuario', {
-                method: 'POST',
+            const response = await fetch('api/usuario', {
+                method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json'
                 },
