@@ -7,28 +7,26 @@ import morgan from 'morgan';
 import cors from 'cors';
 import { fileURLToPath } from 'url';
 import path from "path";
-import jwt from 'jsonwebtoken';
 
 import { inicializacionBD } from "./src/data/index.js";
 import router from './src/routes/index.js';
 import { Auth_User }from "./src/middleware/auth_user.js";
 
 const PORT = process.env.PORT || 3001;
-const { PALABRASECRETA } = process.env
+const { PALABRASECRETA } = process.env;
 
 const app = express();
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-// app.use(cors({ origin: 'https://biblioteca-backend-y7iu.vercel.app' }));
 app.use(cors({
     origin: 'https://biblioteca-backend-y7iu.vercel.app',
     optionsSuccessStatus: 200 
  }));
 
-app.use(bodyParser.urlencoded({extended: false}))
-app.use(bodyParser.json())
+app.use(bodyParser.urlencoded({extended: false}));
+app.use(bodyParser.json());
 app.use(express.json());
 app.use(cookieParser());
 app.use(morgan("dev"));
@@ -53,8 +51,8 @@ app.use((_req, res, next) => {
 });
 
 app.use((_req, _res, next) => {
-    inicializacionBD()
-    next()
+    inicializacionBD();
+    next();
 });
 // app.use('/verificarToken', (req, res, next) => {
 
@@ -69,7 +67,7 @@ app.use((_req, _res, next) => {
 
 app.use('/api', router);
 app.use('/protegida', Auth_User, (req, res) => {
-    res.status(200).json({message: 'acceso autorizado'})
+    res.status(200).json({message: 'acceso autorizado'});
 })
 
 app.listen(PORT, () => {

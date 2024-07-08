@@ -4,6 +4,7 @@ function toggleFavorite(button, dato) {
     const corazonRojo = button.classList.toggle('active');
    
     if (!corazonRojo) {
+        // fetch(`http://localhost:3001/api`, { 
         fetch(`https://biblioteca-backend-y7iu.vercel.app/api`, { 
             method: 'DELETE' ,
             headers: {
@@ -12,9 +13,10 @@ function toggleFavorite(button, dato) {
             body: JSON.stringify({id: dato.id, id_usuario: dato.id_usuario})
         })
             .then(res => res.json())
-            .then(res => console.log(res))
-            .catch(err => console.log(err));
+            .then(res => console.log())
+            .catch(err => console.log('se ha producido un error '));
     } else {
+        // fetch(`http://localhost:3001/api/favoritos`, {
         fetch(`https://biblioteca-backend-y7iu.vercel.app/api/favoritos`, {
              method: 'POST',
              headers: {
@@ -24,6 +26,6 @@ function toggleFavorite(button, dato) {
             })
             .then(res => res.json())
             .then(res => console.log(res))
-            .catch(err => console.log(err));
+            .catch(err => console.log('se ha producido un error'));
     };
 };

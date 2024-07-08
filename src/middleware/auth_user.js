@@ -15,7 +15,9 @@ export const Auth_User = (req, res, next) => {
         try {
             const datosUsuarioSesion = jwt.verify(token, PALABRASECRETA);
             req.session.usuario = datosUsuarioSesion;
-        } catch (error) {console.log(error, 'error en auth_user');}
-    }
+        } catch (error) {
+            console.log(error, 'error en auth_user');
+        };
+    };
     next();
 }

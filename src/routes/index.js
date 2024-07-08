@@ -13,19 +13,18 @@ import BorrarFavoritoBD from "../controller/deleteFavoritoBD.js";
 
 import ActualizarUsuarioBD from "../controller/putUsuarioBD.js";
 
+const router = Router();
 
-const router = Router()
+router.get('/libros', ObtenerLibrosPorCategoriaAPI);
+router.get('/libros/:id', ObtenerLibroPorId);
 
-router.get('/libros', ObtenerLibrosPorCategoriaAPI)
-router.get('/libros/:id', ObtenerLibroPorId)
+router.get('/favoritos/:id_usuario', BuscarFavoritosBD);
+router.post('/favoritos', GuardarLibroComoFavoritoBD);
+router.delete('/', BorrarFavoritoBD);
 
-router.get('/favoritos/:id_usuario', BuscarFavoritosBD)
-router.post('/favoritos', GuardarLibroComoFavoritoBD)
-router.delete('/', BorrarFavoritoBD)
+router.post('/formulario', GuardarUsuarioBD);
+router.post('/usuario', BuscarUsuarioPorEmailBD);
 
-router.post('/formulario', GuardarUsuarioBD)
-router.post('/usuario', BuscarUsuarioPorEmailBD)
-
-router.put('/usuario', ActualizarUsuarioBD)
+router.put('/usuario', ActualizarUsuarioBD);
 
 export default router;
