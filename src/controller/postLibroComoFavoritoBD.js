@@ -36,7 +36,13 @@ const GuardarLibroComoFavoritoBD = async (req, res) => {
                         desconeccionBD(db);
                         res.status(404).json({ err: 'error al guardar las datos del libro' });
                     } else {
-                        db.query('INSERT IGNORE INTO libros (id, authors, imageLink, language, pageCount, title, published_date, id_categoria) VALUES (?, ?, ?, ?, ?, ?, ?, ?);', [id, authors, imageLink, language, pageCount, title, publishedDate, result[0].id_categoria], (err, result) => {
+                        let categoriaLibro = 6;
+                        if(result.length === 0) {
+                            categoriaLibro = 6;
+                        } else {
+                            categoriaLibro = result[0].id_categoria;
+                        };
+                        db.query('INSERT IGNORE INTO libros (id, authors, imageLink, language, pageCount, title, published_date, id_categoria) VALUES (?, ?, ?, ?, ?, ?, ?, ?);', [id, authors, imageLink, language, pageCount, title, publishedDate, categoriaLibro], (err, result) => {
                             if (err) {
                                 desconeccionBD(db);
                                 res.status(404).json({ err: 'error al guardar las datos del libro' });

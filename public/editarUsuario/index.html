@@ -67,7 +67,8 @@
 
                 const body = JSON.stringify({ email, password, nombre, apellido, edad, provincia });
 
-                const response = await fetch('http://localhost:3001/api/usuario', {
+                // const response = await fetch('http://localhost:3001/api/usuario', {
+                const response = await fetch('https://biblioteca-backend-y7iu.vercel.app/api/usuario', {
                     method: 'PUT',
                     headers: {
                         'Content-Type': 'application/json'

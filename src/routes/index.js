@@ -8,6 +8,7 @@ import GuardarLibroComoFavoritoBD from '../controller/postLibroComoFavoritoBD.js
 
 import GuardarUsuarioBD from "../controller/postUsuarioBD.js";
 import BuscarUsuarioPorEmailBD from "../controller/getUsuarioPorEmailBD.js";
+import ObtenerUsuarioPorId from "../controller/getUsuarioPorIdBD.js"
 
 import BorrarFavoritoBD from "../controller/deleteFavoritoBD.js";
 
@@ -24,6 +25,7 @@ router.delete('/', BorrarFavoritoBD);
 
 router.post('/formulario', GuardarUsuarioBD);
 router.post('/usuario', BuscarUsuarioPorEmailBD);
+router.get('/usuario/:id', ObtenerUsuarioPorId)
 
 router.put('/usuario', ActualizarUsuarioBD);
 

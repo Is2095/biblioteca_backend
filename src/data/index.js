@@ -71,7 +71,7 @@ export const inicializacionBD = async () => {
         const [rows] = await coneccion.execute(`SELECT categoria FROM ${configuracionBD.database}.categoria `);
 
         if (rows.length === 0) {
-            const categoria = [['fantasy'], ['education'], ['art'], ['romance'], ['techology']];
+            const categoria = [['fantasy'], ['education'], ['art'], ['romance'], ['techology'], ['sin categoria']];
             coneccion.query('INSERT INTO categoria (categoria) VALUES ?', [categoria]);
         }
         await coneccion.commit();

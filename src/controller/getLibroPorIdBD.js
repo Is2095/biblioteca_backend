@@ -10,6 +10,7 @@ const ObtenerLibroPorId = (req, res) => {
             res.status(404).json({ err: "error al conseguir el dato del libro" });
         } else {
             desconeccionBD(db);
+            const datosUsuarioPorId = {password, ...datosUsuario } = result
             res.status(200).send(result);
         };
     });

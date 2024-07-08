@@ -25,7 +25,7 @@ function toggleFavorite(button, dato) {
              body: JSON.stringify(dato)
             })
             .then(res => res.json())
-            .then(res => console.log(res))
+            .then(res => console.log())
             .catch(err => console.log('se ha producido un error'));
     };
 };

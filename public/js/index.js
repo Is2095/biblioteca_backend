@@ -25,6 +25,7 @@ if (datoUsuario !== null) {
     registrarse.style.opacity = '1';
 };
 const usuarioLogin = async () => {
+    // fetch('http://localhost:3001/protegida')
     fetch('https://biblioteca-backend-y7iu.vercel.app/protegida')
         .then(res => res.json())
         .then(res => {
