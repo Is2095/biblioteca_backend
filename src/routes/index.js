@@ -26,6 +26,6 @@ router.delete('/', BorrarFavoritoBD)
 router.post('/formulario', GuardarUsuarioBD)
 router.post('/usuario', BuscarUsuarioPorEmailBD)
 
-router.put('/', ActualizarUsuarioBD)
+router.put('/usuario', ActualizarUsuarioBD)
 
 export default router;
