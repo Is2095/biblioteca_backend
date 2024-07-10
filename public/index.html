@@ -26,18 +26,14 @@
         <button type="button" class="a" id="rutaProtegida">Ruta Protegida</button>
         <li><a id="hrefRegistrarse" class="a" href="./formulario/CONTACTO.html">Registrarse</a></li>
         <li><a id="hrefEntrar" class="a" href="./login/index.html">Login</a></li>
-        <li><a id="hrefSalir" class="a" href="#" onclick="sessionStorage.removeItem('idUsuario'); sessionStorage.removeItem('usuario'); location.reload()
-        ">Salir</a></li>
-        <li><a id="hrefUser" href="./actualizarUsuario/index.html"><img id="imagenUser" class="usuario" src=""
-              alt="sin imagen"></a></li>
-        <li>
-        <li><a id="hrefNombreUsuario" href="./actualizarUsuario/index.html"  class="a" ><i class="h5h" id="nombreUsuario"></i></a></li>
-        <h3 id="nombreUsuario"></h3>
-        </li>
+        <li><a id="hrefMiCuenta" class="a" href="./perfilUsuario/index.html">Mi cuenta</a></li>
+        <li><a id="hrefUser" href="./perfilUsuario/index.html"><img id="imagenUser" class="usuario" src="" alt="sin imagen"></a></li>
+        <li><a id="hrefSalir" class="a" href="#" onclick="sessionStorage.removeItem('idUsuario'); sessionStorage.removeItem('usuario'); location.reload()">Salir</a></li>
         <!-- <li><a id="hrefUser" href="./formulario/CONTACTO.html"><i class="bi bi-person-circle usuario"></i></a></li> -->
         <!--   <li><a href="About_us.html">Quienes somos</a></li> -->
       </ul>
       <div class="container_header">
+        <h3 id="nombreUsuario"></h3>
         <h1 class="titulo">Biblioteca Digital</h1>
         <div class="container_nav_logo">
           <img src="./Images/logo.jpg" alt="logo" class="imagen">
@@ -171,16 +167,15 @@
   <script src="./js/index.js"></script>
   <script src="./js/favoritos.js"></script>
   <script>
-  // <li><a id="hrefNombreUsuario" href="./actualizarUsuario/index.html"><h3 id="nombreUsuario"></h3></a></li>
-
-    const foto = sessionStorage.getItem('imageUser')
-    const nombre = sessionStorage.getItem('usuario')
+    const foto = sessionStorage.getItem('imageUser');
+    const nombre = sessionStorage.getItem('usuario');
 
     const imageUsuario = $d.getElementById('imagenUser');
-    imageUsuario.src = foto
+    imageUsuario.src = foto;
+
     if(nombre) {
-      document.getElementById('nombreUsuario').innerText = `" ${nombre} "`
-    }
+      document.getElementById('nombreUsuario').innerText = `" Bienvenido ${nombre} "`
+    };
   </script>
 </body>
 

@@ -5,13 +5,13 @@ const APIKEY = process.env.APIKEY;
 
 const ObtenerLibrosPorCategoriaAPI = (req, res) => {
 
-    const {categoria, nombreLibro }= req.query;
-    let url = ''
-    if(nombreLibro) {
+    const { categoria, nombreLibro } = req.query;
+    let url = '';
+    if (nombreLibro) {
         url = `https://www.googleapis.com/books/v1/volumes?q=${nombreLibro}`;
     } else {
         url = `https://www.googleapis.com/books/v1/volumes?q=subject:${categoria}&maxResults=5&langRestrict=es&key=${APIKEY}`
-    }
+    };
     fetch(url)
         .then(result => result.json())
         .then(libros => libros.items)
@@ -35,8 +35,8 @@ const ObtenerLibrosPorCategoriaAPI = (req, res) => {
             res.status(200).json(datosLibros);
         })
         .catch(err => {
-            console.log(err)
-            res.status(404).json({err: "error al buscar los datos a la API"})
+            // console.log(err)
+            res.status(404).json({ err: "error al buscar los datos a la API" });
         });
 };
 

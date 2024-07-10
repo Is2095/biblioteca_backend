@@ -44,6 +44,7 @@
         </div>
         <div class="perfil-usuario-body">
             <div class="perfil-usuario-bio">
+<<<<<<< HEAD:public/actualizarUsuario/index.html
                 <h3 class="titulo" id="tituloActualizar">Actualización de datos del Usuario: </h3>
             </div>
             <form id="formularioActualizacion" class="perfil-usuario-footer" novalidate>
@@ -100,6 +101,21 @@
             <a href="" class="boton-redes facebook fab fa-facebook-f"><i class="icon-facebook"></i></a>
             <a href="" class="boton-redes twitter fab fa-twitter"><i class="icon-twitter"></i></a>
             <a href="" class="boton-redes instagram fab fa-instagram"><i class="icon-instagram"></i></a>
+=======
+                <h3 class="titulo" id="nombreApellidoUsuario"></h3>
+            </div>
+            <div class="perfil-usuario-footer">
+                <ul class="lista-datos">
+                    <li><i id="nombreUsuario" class="fa-solid fa-user-pen"> Nombre: </i></li>
+                    <li><i id="apellidoUsuario" class="fa-solid fa-user-pen"> Apellido: </i></li>
+                </ul>
+                <ul class="lista-datos">
+                    <li><i id="provinciaUsuario" class="fas fa-map-marker-alt"> Provincia: </i></li>
+                    <li><i id="edadUsuario" class="fas fa-calendar-alt"> Edad: </i></li>
+                </ul>
+            </div>
+            <a href="../editarUsuario/index.html"><button>Editar Usuario</button></a>
+>>>>>>> main:public/perfilUsuario/index.html
         </div>
         </div>
     </section>
@@ -136,6 +152,7 @@
         </div>
         <h2 class="titulo-final">&copy; Proyecto Codo a Codo Grupo 3</h2>
     </footer>
+<<<<<<< HEAD:public/actualizarUsuario/index.html
     <script>
         const usuario = sessionStorage.getItem('usuario')
         const imagenUsuario = sessionStorage.getItem('imageUser')
@@ -144,6 +161,30 @@
     </script>
     <script src="./actualizacion.js"></script>
     <script src="../formulario/js/script.js"></script>
+=======
+
+    <script>
+        const id = sessionStorage.getItem('idUsuario')
+        // fetch(`http://localhost:3001/api/usuario/${id}`, {
+            fetch(`https://biblioteca-backend-y7iu.vercel.app/api/usuario/${id}`)
+            .then(resultado => resultado.json())
+            .then(usuario => {
+                if (usuario.err) {
+                    alert('error al conseguir los datos');
+                } else {
+                    console.log(usuario);
+                    document.getElementById('nombreApellidoUsuario').innerText = `" ${usuario.nombre} ${usuario.apellido} "`
+                    document.getElementById('nombreUsuario').innerText += `" ${usuario.nombre} "`
+                    document.getElementById('apellidoUsuario').innerText += `" ${usuario.apellido} "`
+                    document.getElementById('provinciaUsuario').innerText += `" ${usuario.provincia} "`
+                    document.getElementById('edadUsuario').innerText += `" ${usuario.edad} "`
+                };
+            })
+            .catch(err => console.log('error al logearse'));
+
+    </script>
+
+>>>>>>> main:public/perfilUsuario/index.html
 </body>
 
 </html>

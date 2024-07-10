@@ -1,74 +1,81 @@
 
 const $d = document;
 const entrar = $d.getElementById('hrefEntrar');
+const miCuenta = $d.getElementById('hrefMiCuenta');
 const salir = $d.getElementById('hrefSalir');
 const registrarse = $d.getElementById('hrefRegistrarse');
 const botonFavorito = $d.getElementById('botonFavorito');
 const user = $d.getElementById('hrefUser');
 const nombreLibro = $d.getElementById('libroPorTitulo');
-const loading = $d.getElementById('loading')
-
+const loading = $d.getElementById('loading');
 
 let datoUsuario = sessionStorage.getItem('idUsuario');
+
 if (datoUsuario !== null) {
     entrar.style.opacity = '0';
     salir.style.opacity = '1';
+    miCuenta.style.opacity = '1';
     user.style.opacity = '1';
     registrarse.style.opacity = '0';
 } else {
     entrar.style.opacity = '1';
     salir.style.opacity = '0';
+    miCuenta.style.opacity = '0';
     user.style.opacity = '0';
     registrarse.style.opacity = '1';
 };
 const usuarioLogin = async () => {
-    fetch('http://localhost:3001/protegida')
+    // fetch('http://localhost:3001/protegida')
+    fetch('https://biblioteca-backend-y7iu.vercel.app/protegida')
         .then(res => res.json())
         .then(res => {
             if (res.err) {
-                sessionStorage.clear()
+                sessionStorage.clear();
                 datoUsuario = sessionStorage.getItem('idUsuario');
-            }
+            };
         })
-        .catch(err => console.log(err))
-    
+        .catch(err => console.log(err));
 };
 usuarioLogin();
-setInterval(function() {
-    const a = sessionStorage.getItem('usuario')
+
+setInterval(function () {
+    const a = sessionStorage.getItem('usuario');
     if (a !== null) {
         entrar.style.opacity = '0';
         salir.style.opacity = '1';
+        miCuenta.style.opacity = '0';
         user.style.opacity = '1';
         registrarse.style.opacity = '0';
     } else {
         entrar.style.opacity = '1';
         salir.style.opacity = '0';
+        miCuenta.style.opacity = '0';
         user.style.opacity = '0';
         registrarse.style.opacity = '1';
     };
 }, 10000);
 
-const rutaProtegida = document.getElementById('rutaProtegida')
+const rutaProtegida = document.getElementById('rutaProtegida');
 rutaProtegida.addEventListener('click', (e) => {
-    e.preventDefault()
-    fetch('http://localhost:3001/protegida')
+    e.preventDefault();
+    // fetch('http:///localhost:3001/protegida')
+        fetch('https://biblioteca-backend-y7iu.vercel.app/protegida')
         .then(res => res.json())
         .then(res => {
-            const mensaje = res.err ?? res.message
-            alert(mensaje)
+            const mensaje = res.err ?? res.message;
+            alert(mensaje);
             if (res.err) {
-                sessionStorage.clear()
-                usuarioLogin()
+                sessionStorage.clear();
+                usuarioLogin();
             }
-            window.location.href = './index.html'
+            window.location.href = './index.html';
         })
-        .catch(err => { })
+        .catch(err => { });
 })
 const llamar = async (categoria) => {
 
-    usuarioLogin()
-   
+    usuarioLogin();
+
     let nombreDelLibro = '';
 
     const contenedor = document.getElementById('librosBD');
@@ -76,10 +83,11 @@ const llamar = async (categoria) => {
 
     const id_usuario = sessionStorage.getItem('idUsuario');
 
-    const response = await fetch(`http://localhost:3001/api/favoritos/${parseInt(id_usuario)}`);
+    // const response = await fetch(`http://localhost:3001/api/favoritos/${parseInt(id_usuario)}`);
+    const response = await fetch(`https://biblioteca-backend-y7iu.vercel.app/api/favoritos/${parseInt(id_usuario)}`);
     const arrayFavoritos = await response.json();
 
-    loading.style.display = 'block'
+    loading.style.display = 'block';
 
     const insertarDatos = (datos) => {
         datos.forEach((objeto, index) => {
@@ -105,7 +113,7 @@ const llamar = async (categoria) => {
                     <p>cantidad de hojas: ${pageCount}</p>
                     `;
                 const boton = div.querySelector('#botonCorazon');
-                boton.addEventListener('click', () => toggleFavorite(boton, datosLibroFavorito))
+                boton.addEventListener('click', () => toggleFavorite(boton, datosLibroFavorito));
                 loading.style.display = 'none';
                 contenedor.appendChild(div);
             };
@@ -114,7 +122,8 @@ const llamar = async (categoria) => {
     if (categoria === 'titulo') {
         nombreDelLibro = $d.getElementById('libroPorTitulo').value.toLowerCase();
     }
-    fetch(`http://localhost:3001/api/libros?nombreLibro=${nombreDelLibro}&categoria=${categoria}`)
+    // fetch(`http://localhost:3001/api/libros?nombreLibro=${nombreDelLibro}&categoria=${categoria}`)
+        fetch(`https://biblioteca-backend-y7iu.vercel.app/api/libros?nombreLibro=${nombreDelLibro}&categoria=${categoria}`)
         .then(res => res.json())
         .then(res => insertarDatos(res))
         .catch(err => console.log(err));
